@@ -1,18 +1,20 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
+
+import styles from '../styles'
 
 const ListItem = props => {
     return(
 
-        <TouchableOpacity style={[styles.container,
+        <TouchableOpacity style={[styles.listItem.container,
             {
                 backgroundColor: props.isDone ? "#F57C00" : "#00796B"
             }
         ]} onPress={props.onSelect}>
 
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <View style={styles.dot}/>
-                <Text style={[styles.text,
+                <View style={styles.listItem.dot}/>
+                <Text style={[styles.listItem.text,
                     {
                         textDecorationLine: props.isDone ? 'line-through' : "none"
                     }
@@ -32,28 +34,5 @@ const ListItem = props => {
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        margin: 10,
-        padding: 10,
-        borderRadius: 10,
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-
-    text: {
-        fontSize: 20,
-        marginLeft: 10,
-        color: 'white'
-    },
-
-    dot: {
-        width: 10,
-        height: 10,
-        borderRadius: 15,
-        backgroundColor: '#212121'
-    }
-})
 
 export {ListItem}

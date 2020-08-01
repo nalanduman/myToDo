@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {SafeAreaView, View, FlatList, Text} from 'react-native';
 
 import { MyButton, MyInput, ListItem } from './components';
+import styles from './styles';
 
 const Main = props => {
 
@@ -36,25 +37,15 @@ const Main = props => {
       newArray.splice(id, 1)
       setTodoList(newArray)
     }
-    // newArray[id].isDone = !newArray[id].isDone 
     
   }
-
-  // changeText = (text) => {
-  //   setEntry(text)
-  // }
-
-  // addToList = () => {
-  //   let newList = [...list]
-  //   newList.push({myEntry: entry})
-  //   setList(newList)
-  //   setTodo(null)
-  // }
-
 
     return (
         <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
             <View style={{flex: 1}}>
+
+              <Text style={styles.main.title}>To Do List</Text>
+
               <FlatList
                 keyExtractor={(_, index) => index.toString()}
                 data={todoList}
